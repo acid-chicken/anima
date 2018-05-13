@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 -143 285 285">
+  <circle r="142" fill="#DD4814" />
+  <g id="a" fill="#FFF">
+    <circle cx="-96" r="19" />
+    <path d="M-46 68a82 82 0 0 1-34-47 27 27 0 0 0 0-42c6-19 18-36 34-47l14 23a55 55 0 0 0 0 90z" />
+  </g>
+  <use transform="rotate(120)" xlink:href="#a" />
+  <use transform="rotate(240)" xlink:href="#a" />
+</svg>
