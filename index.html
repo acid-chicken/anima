@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" content="Web Animation">
+    <meta property="og:url" content="https://acid-chicken.com">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Anima - Acid Chicken's Website 2018">
+    <meta property="og:description" content="Web Animation">
+    <meta property="og:site_name" content="Site Name">
+    <meta property="og:locale" content="ja_JP">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@acid_chicken">
+    <meta name="twitter:creator" content="@acid_chicken">
+    <meta property="twitter:url" content="https://acid-chicken.com">
+    <meta property="twitter:title" content="Anima - Acid Chicken's Website 2018">
+    <meta name="twitter:description" content="Web Animation">
+    <title>Anima - Acid Chicken's Website 2018</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel|Ubuntu+Mono">
+    <link rel="canonical" href="https://acid-chicken.com">
+    <link rel="me" href="https://twitter.com/acid_chicken">
+    <style>
+      /*
+       * Noto Sans JP (japanese) http://www.google.com/fonts/earlyaccess
+       */
+
+      @font-face {
+        font-family: 'Noto Sans JP';
+        font-style: normal;
+        font-weight: 100;
+        src: local('Noto Sans CJK JP'),
+             local('Noto Sans JP'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff2)format('woff2'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff)format('woff'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.otf)format('opentype')
+      }
+
+      @font-face {
+        font-family: 'Noto Sans JP';
+        font-style: normal;
+        font-weight: 300;
+        src: local('Noto Sans CJK JP'),
+             local('Noto Sans JP'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Light.woff2)format('woff2'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Light.woff)format('woff'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Light.otf)format('opentype')
+      }
+
+      @font-face {
+        font-family: 'Noto Sans JP';
+        font-style: normal;
+        font-weight: 400;
+        src: local('Noto Sans CJK JP'),
+             local('Noto Sans JP'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Regular.woff2)format('woff2'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Regular.woff)format('woff'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Regular.otf)format('opentype')
+      }
+
+      @font-face {
+        font-family: 'Noto Sans JP';
+        font-style: normal;
+        font-weight: 500;
+        src: local('Noto Sans CJK JP'),
+            local('Noto Sans JP'),
+            url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Medium.woff2)format('woff2'),
+            url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Medium.woff)format('woff'),
+            url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Medium.otf)format('opentype')
+      }
+
+      @font-face {
+        font-family: 'Noto Sans JP';
+        font-style: normal;
+        font-weight: 700;
+        src: local('Noto Sans CJK JP'),
+             local('Noto Sans JP'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Bold.woff2)format('woff2'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Bold.woff)format('woff'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Bold.otf)format('opentype')
+      }
+
+      @font-face {
+        font-family: 'Noto Sans JP';
+        font-style: normal;
+        font-weight: 900;
+        src: local('Noto Sans CJK JP'),
+             local('Noto Sans JP'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Black.woff2)format('woff2'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Black.woff)format('woff'),
+             url(https://fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Black.otf)format('opentype')
+      }
+      html,
+      body,
+      main {
+        height: 100%;
+        margin: 0;
+        width: 100%
+      }
+
+      main,
+      menu {
+        display: none
+      }
+
+      main > * {
+        color: #ffffff;
+        -webkit-font-display: swap;
+           -moz-font-display: swap;
+            -ms-font-display: swap;
+             -o-font-display: swap;
+                font-display: swap;
+        overflow: hidden;
+        position: absolute
+      }
+
+      .animate {
+        align-items: center;
+        display: flex;
+        justify-content: center
+      }
+
+      .animate #brush {
+        height: 100%;
+        width: 100%
+      }
+
+      .animate #brush * {
+        height: calc(100% / 6);
+        width: 100%
+      }
+
+      .animate #brush *::before,
+      .animate #brush *::after {
+        border: .5px solid #202224;
+        background: #202224;
+        content: '';
+        display: block;
+        height: 100%;
+        width: 100%
+      }
+
+      .animate #brush :nth-child(1):before { animation: brush-left-main .5s cubic-bezier(.24, 1, .36, 1) 0s both }
+
+      .animate #brush :nth-child(1)::after { animation: brush-right-sub .5s cubic-bezier(.24, 1, .36, 1) calc(.5s / 11) both }
+
+      .animate #brush :nth-child(2)::before { animation: brush-left-sub .5s cubic-bezier(.24, 1, .36, 1) calc(1.5s / 11) both }
+
+      .animate #brush :nth-child(2)::after { animation: brush-right-main .5s cubic-bezier(.24, 1, .36, 1) calc(1s / 11) both }
+
+      .animate #brush :nth-child(3)::before { animation: brush-left-big-main .5s cubic-bezier(.24, 1, .36, 1) calc(3s / 11) both }
+
+      .animate #brush :nth-child(3)::after { animation: brush-right-big-sub .5s cubic-bezier(.24, 1, .36, 1) calc(2.5s / 11) both }
+
+      .animate #brush :nth-child(4):before { animation: brush-left-big-sub .5s cubic-bezier(.24, 1, .36, 1) calc(3.5s / 11) both }
+
+      .animate #brush :nth-child(4)::after { animation: brush-right-big-main .5s cubic-bezier(.24, 1, .36, 1) calc(3s / 11) both }
+
+      .animate #brush :nth-child(5)::before { animation: brush-left-main .5s cubic-bezier(.24, 1, .36, 1) calc(4s / 11) both }
+
+      .animate #brush :nth-child(5)::after { animation: brush-right-sub .5s cubic-bezier(.24, 1, .36, 1) calc(4.5s / 11) both }
+
+      .animate #brush :nth-child(6)::before { animation: brush-left-sub .5s cubic-bezier(.24, 1, .36, 1) .5s both }
+
+      .animate #brush :nth-child(6)::after { animation: brush-right-main .5s cubic-bezier(.24, 1, .36, 1) calc(5s / 11) both }
+
+      @keyframes brush-left-big-main {
+        from { transform: translateX(-100%) }
+          to { transform: translateX(-25%) }
+      }
+
+      @keyframes brush-left-big-sub {
+        from { transform: translateX(-100%) }
+          to { transform: translateX(-75%) }
+      }
+
+      @keyframes brush-left-main {
+        from { transform: translateX(-100%) }
+          to { transform: translateX(-36%) }
+      }
+
+      @keyframes brush-left-sub {
+        from { transform: translateX(-100%) }
+          to { transform: translateX(-64%) }
+      }
+
+      @keyframes brush-right-big-main {
+        from { transform: translateX(100%) translateY(-100%) }
+          to { transform: translateX(25%) translateY(-100%) }
+      }
+
+      @keyframes brush-right-big-sub {
+        from { transform: translateX(100%) translateY(-100%) }
+          to { transform: translateX(75%) translateY(-100%) }
+      }
+
+      @keyframes brush-right-main {
+        from { transform: translateX(100%) translateY(-100%) }
+          to { transform: translateX(36%) translateY(-100%) }
+      }
+
+      @keyframes brush-right-sub {
+        from { transform: translateX(100%) translateY(-100%) }
+          to { transform: translateX(64%) translateY(-100%) }
+      }
+
+      .animate #logo {
+        animation:
+          logo-in 1.5s cubic-bezier(.24, 1, .36, 1) .5s backwards,
+          logo-out 6s cubic-bezier(.24, 0, .72, 0) 2s forwards;
+        display: flex;
+        flex-direction: column
+      }
+
+      .animate #logo svg:first-child {
+        transform: translateY(12.5%)
+      }
+
+      .animate #logo svg:last-child {
+        transform: rotate(.5turn) translateY(12.5%)
+      }
+
+      @keyframes logo-in {
+        from { transform: scale(0) }
+          to { transform: scale(1) }
+      }
+
+      @keyframes logo-out {
+        from { transform: rotate(0) scale(1) }
+          to { transform: rotate(60deg) scale(0) }
+      }
+
+      .animate #logo svg {
+        fill: #ffffff;
+        stroke: #ffffff;
+        -webkit-stroke-alignment: inner;
+           -moz-stroke-alignment: inner;
+            -ms-stroke-alignment: inner;
+             -o-stroke-alignment: inner;
+                stroke-alignment: inner;
+        stroke-dasharray: 384px 384px;
+        stroke-linecap: square;
+        stroke-linejoin: miter;
+        stroke-width: 1px;
+        animation:
+          logo-path-stroke 1s cubic-bezier(.24, 0, .72, 0) .5s both,
+          logo-path-fill .5s cubic-bezier(.24, 1, .36, 1) 1.5s both
+      }
+
+      @keyframes logo-path-stroke {
+        from { stroke-dashoffset: 384px }
+          to { stroke-dashoffset: 0 }
+      }
+
+      @keyframes logo-path-fill {
+        from {
+          fill-opacity: 0;
+          stroke-opacity: 1
+        }
+          to {
+          fill-opacity: 1;
+          stroke-opacity: 0
+        }
+      }
+
+      .animate #particles {
+        height: 100%;
+        width: 100%
+      }
+
+      .animate #particles .wrapper {
+        align-items: center;
+        animation:
+          particle-wrapper-in 1.5s cubic-bezier(.24, 0, .72, 0) .5s both,
+          particle-wrapper-out 6s cubic-bezier(.24, 0, .72, 0) 2s both;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        position: fixed;
+        width: 100%
+      }
+
+      @keyframes particle-wrapper-in {
+        from { opacity: 0 }
+          to { opacity: 1 }
+      }
+
+      @keyframes particle-wrapper-out {
+        from { transform: rotate(.5turn) }
+          to { transform: rotate(1turn) }
+      }
+
+      .animate #particles .wrapper img {
+        width: 12.5%
+      }
+
+      .animate #particles .wrapper:nth-child(1) img { animation: particle-out-left-top 6s cubic-bezier(.24, 0, .72, 0) 2s both }
+
+      .animate #particles .wrapper:nth-child(2) img { animation: particle-out-top 6s cubic-bezier(.24, 0, .72, 0) 2s both }
+
+      .animate #particles .wrapper:nth-child(3) img { animation: particle-out-top-right 6s cubic-bezier(.24, 0, .72, 0) 2s both }
+
+      .animate #particles .wrapper:nth-child(4) img { animation: particle-out-right 6s cubic-bezier(.24, 0, .72, 0) 2s both }
+
+      .animate #particles .wrapper:nth-child(5) img { animation: particle-out-right-bottom 6s cubic-bezier(.24, 0, .72, 0) 2s both }
+
+      .animate #particles .wrapper:nth-child(6) img { animation: particle-out-bottom 6s cubic-bezier(.24, 0, .72, 0) 2s both }
+
+      .animate #particles .wrapper:nth-child(7) img { animation: particle-out-bottom-left 6s cubic-bezier(.24, 0, .72, 0) 2s both }
+
+      .animate #particles .wrapper:nth-child(8) img { animation: particle-out-left 6s cubic-bezier(.24, 0, .72, 0) 2s both }
+
+      @keyframes particle-out-left-top {
+        from {
+          transform: rotate(-.5turn) scale(1);
+          transform-origin: -200% -200%
+        }
+          to {
+          transform: rotate(-.5turn) scale(0);
+          transform-origin: center center
+        }
+      }
+
+      @keyframes particle-out-top {
+        from {
+          transform: rotate(-.5turn) scale(1);
+          transform-origin: center -300%
+        }
+          to {
+          transform: rotate(-.5turn) scale(0);
+          transform-origin: center center
+        }
+      }
+
+      @keyframes particle-out-top-right {
+        from {
+          transform: rotate(-.5turn) scale(1);
+          transform-origin: 300% -200%
+        }
+          to {
+          transform: rotate(-.5turn) scale(0);
+          transform-origin: center center
+        }
+      }
+
+      @keyframes particle-out-right {
+        from {
+          transform: rotate(-.5turn) scale(1);
+          transform-origin: 400% center
+        }
+          to {
+          transform: rotate(-.5turn) scale(0);
+          transform-origin: center center
+        }
+      }
+
+      @keyframes particle-out-right-bottom {
+        from {
+          transform: rotate(-.5turn) scale(1);
+          transform-origin: 300% 300%
+        }
+          to {
+          transform: rotate(-.5turn) scale(0);
+          transform-origin: center center
+        }
+      }
+
+      @keyframes particle-out-bottom {
+        from {
+          transform: rotate(-.5turn) scale(1);
+          transform-origin: center 400%
+        }
+          to {
+          transform: rotate(-.5turn) scale(0);
+          transform-origin: center center
+        }
+      }
+
+      @keyframes particle-out-bottom-left {
+        from {
+          transform: rotate(-.5turn) scale(1);
+          transform-origin: -200% 300%
+        }
+          to {
+          transform: rotate(-.5turn) scale(0);
+          transform-origin: center center
+        }
+      }
+
+      @keyframes particle-out-left {
+        from {
+          transform: rotate(-.5turn) scale(1);
+          transform-origin: -300% center
+        }
+          to {
+          transform: rotate(-.5turn) scale(0);
+          transform-origin: center center
+        }
+      }
+
+      .animate #shell {
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        font: 2em/1 'Ubuntu Mono', 'Noto Sans JP', monospace;
+        height: 100%;
+        justify-content: center;
+        width: 75%
+      }
+
+      @media screen and (max-width: 720px) { .animate #shell { font-size: 1.5em } }
+
+      @media screen and (max-width: 360px) { .animate #shell { font-size: .75em } }
+
+      .animate #shell > * {
+        animation:
+          shell-frame-in .5s cubic-bezier(.24, 1, .36, 1) 8s backwards,
+          shell-frame-out .5s cubic-bezier(.24, 0, .72, 0) 44s forwards;
+        background: #44485b80;
+        border-radius: .25em;
+        box-shadow: 0 .125em .25em .125em #11121380;
+        margin: 1em;
+        overflow: hidden;
+        padding: .25em;
+        transform: scaleX(1)
+      }
+
+      .animate #shell * ::after {
+        white-space: pre
+      }
+
+      .animate #shell .input {
+        height: 1em
+      }
+
+      .animate #shell .input * {
+        display: flex;
+        position: absolute
+      }
+
+      .animate #shell .input ::before {
+        background: url('assets/shell.svg');
+        content: '';
+        display: inline-block;
+        height: 1em;
+        width: 1em
+      }
+
+      .animate #shell .input ::after {
+        content: ''
+      }
+
+      .animate #shell .input .name {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 8s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 10s forwards
+      }
+
+      .animate #shell .input .name::after {
+        animation: shell-input-name .5s linear 9s both
+      }
+
+      .animate #shell .input .org {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 14s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 16s forwards
+      }
+
+      .animate #shell .input .org::after {
+        animation: shell-input-org .5s linear 15s both
+      }
+
+      .animate #shell .input .social {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 20s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 22s forwards
+      }
+
+      .animate #shell .input .social::after {
+        animation: shell-input-social .5s linear 21s both
+      }
+
+      .animate #shell .input .lang {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 26s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 28s forwards
+      }
+
+      .animate #shell .input .lang::after {
+        animation: shell-input-lang .5s linear 27s both
+      }
+
+      .animate #shell .input .using {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 32s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 34s forwards
+      }
+
+      .animate #shell .input .using::after {
+        animation: shell-input-using .5s linear 33s both
+      }
+
+      .animate #shell .input .address {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 38s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 40s forwards
+      }
+
+      .animate #shell .input .address::after {
+        animation: shell-input-address .5s linear 39s both
+      }
+
+      .animate #shell .output {
+        height: 4em
+      }
+
+      .animate #shell .output * {
+        position: absolute;
+        height: 4em
+      }
+
+      .animate #shell .output .name {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 10.75s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 13.25s forwards
+      }
+
+      .animate #shell .output .name::after {
+        content: 'English:  Acid Chicken\AJapanese: 硫酸鶏'
+      }
+
+      .animate #shell .output .org {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 16.75s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 19.25s forwards
+      }
+
+      .animate #shell .output .org::after {
+        content: '* BitZenyCore\9* Frost\A* OutletTwit\9* Ratya\A* Sprinqler\9* Sweak Network'
+      }
+
+      .animate #shell .output .social {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 22.75s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 25.25s forwards
+      }
+
+      .animate #shell .output .social::after {
+        content: 'Discord: 硫酸鶏#3925\AGitHub:  @acid-chicken\ASteam:   @acid_chicken\ATwitter: @acid_chicken etc.'
+      }
+
+      .animate #shell .output .lang {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 28.75s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 31.25s forwards
+      }
+
+      .animate #shell .output .lang::after {
+        content: '* C#\9* CSS (< Sass)\A* HTML\9* JavaScript (< TypeScript)\A* Lua\9* Nim\A* Shell\9* Visual Basic\9 etc.'
+      }
+
+      .animate #shell .output .using {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 34.75s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 37.25s forwards
+      }
+
+      .animate #shell .output .using::after {
+        content: '*.NET Core\9* Firefox\A* GitKraken\9* GNOME 3\A* nginx \9* Spotify\A* Ubuntu\9* VSCode\9 etc.'
+      }
+
+      .animate #shell .output .address {
+        animation:
+          shell-in 1s cubic-bezier(.24, 1, .36, 1) 40.75s backwards,
+          shell-out 1s cubic-bezier(.24, 0, .72, 0) 43.25s forwards
+      }
+
+      .animate #shell .output .address::after {
+        content: 'email:    root@acid-chicken.com\Aphysical: Nara, Japan\A\Astatus:   Available for hire!'
+      }
+
+      @keyframes shell-frame-in {
+        from { transform: scaleX(0) }
+          to { transform: scaleX(1) }
+      }
+
+      @keyframes shell-frame-out {
+        from { transform: scaleX(1) }
+          to { transform: scaleX(0) }
+      }
+
+      @keyframes shell-in {
+        from { transform: translateY(-200%) }
+          to { transform: translateY(0) }
+      }
+
+      @keyframes shell-out {
+        from { transform: translateY(0) }
+          to { transform: translateY(200%) }
+      }
+
+      @keyframes shell-input-name {
+          0% { content: '' }
+          5% { content: 't' }
+         10% { content: 'th' }
+         15% { content: 'thi' }
+         20% { content: 'this' }
+         25% { content: 'this.' }
+         30% { content: 'this.n' }
+         35% { content: 'this.na' }
+         40% { content: 'this.nam' }
+         45% { content: 'this.name' }
+        100% { content: 'this.name' }
+      }
+
+      @keyframes shell-input-org {
+          0% { content: '' }
+          5% { content: 't' }
+         10% { content: 'th' }
+         15% { content: 'thi' }
+         20% { content: 'this' }
+         25% { content: 'this.' }
+         30% { content: 'this.o' }
+         35% { content: 'this.or' }
+         40% { content: 'this.org' }
+        100% { content: 'this.org' }
+      }
+
+      @keyframes shell-input-social {
+          0% { content: '' }
+          5% { content: 't' }
+         10% { content: 'th' }
+         15% { content: 'thi' }
+         20% { content: 'this' }
+         25% { content: 'this.' }
+         30% { content: 'this.s' }
+         35% { content: 'this.so' }
+         40% { content: 'this.soc' }
+         45% { content: 'this.soci' }
+         50% { content: 'this.socia' }
+         55% { content: 'this.social' }
+        100% { content: 'this.social' }
+      }
+
+      @keyframes shell-input-lang {
+          0% { content: '' }
+          5% { content: 't' }
+         10% { content: 'th' }
+         15% { content: 'thi' }
+         20% { content: 'this' }
+         25% { content: 'this.' }
+         30% { content: 'this.l' }
+         35% { content: 'this.la' }
+         40% { content: 'this.lan' }
+         45% { content: 'this.lang' }
+        100% { content: 'this.lang' }
+      }
+
+      @keyframes shell-input-using {
+          0% { content: '' }
+          5% { content: 't' }
+         10% { content: 'th' }
+         15% { content: 'thi' }
+         20% { content: 'this' }
+         25% { content: 'this.' }
+         30% { content: 'this.u' }
+         35% { content: 'this.us' }
+         40% { content: 'this.usi' }
+         45% { content: 'this.usin' }
+         50% { content: 'this.using' }
+        100% { content: 'this.using' }
+      }
+
+      @keyframes shell-input-address {
+          0% { content: '' }
+          5% { content: 't' }
+         10% { content: 'th' }
+         15% { content: 'thi' }
+         20% { content: 'this' }
+         25% { content: 'this.' }
+         30% { content: 'this.a' }
+         35% { content: 'this.ad' }
+         40% { content: 'this.add' }
+         45% { content: 'this.addr' }
+         50% { content: 'this.addre' }
+         55% { content: 'this.addres' }
+         60% { content: 'this.address' }
+        100% { content: 'this.address' }
+      }
+
+      .animate #thanks {
+        align-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        font: 4em 'Abel', 'Noto Sans JP', sans-serif;
+        justify-content: space-around;
+        text-align: center;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+             -o-user-select: none;
+                user-select: none;
+        width: 100%
+      }
+
+      .animate #thanks * {
+        flex: 1 0 auto
+      }
+
+      .animate #thanks::before,
+      .animate #thanks::after {
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        width: 100%
+      }
+
+      .animate #thanks::before {
+        animation: thanks-wrapper 1s cubic-bezier(.24, 1, .5, .5) 45s both;
+        background: #2284e6;
+        z-index: 3
+      }
+
+      .animate #thanks::after {
+        animation: thanks-wrapper 1s cubic-bezier(.24, 0, .5, .5) 45s both;
+        background: #2468ac;
+        z-index: 2
+      }
+
+      .animate #thanks * {
+        animation: thanks .25s cubic-bezier(.24, 1, .36, 1) 45.375s both;
+        z-index: 1
+      }
+
+      @keyframes thanks-wrapper {
+        from { transform: translateX(-100%) }
+          to { transform: translateX(100%) }
+      }
+
+      @keyframes thanks {
+        from { transform: scaleX(0) }
+          to { transform: scaleX(1) }
+      }
+
+      .animate #share {
+        animation: share .5s cubic-bezier(0.16, 0.72, 0.32, 1.28) 46.5s both;
+        bottom: 1em;
+        width: 12.5%
+      }
+
+      @keyframes share {
+        from { transform: scale(0) }
+          to { transform: scale(1) }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="root" contextmenu="menu">
+      <aside id="brush">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </aside>
+      <aside id="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="128">
+          <path d="M118.353 109.783L61.687 53.121c-13.07 14.984-20.719 34.05-21.588 53.921l-.087 1.999-3.996-.175.087-1.998c.94-21.506 9.474-42.107 24.028-58.008l1.411-1.542 59.64 59.637L118.353 109.783zM124.015 104.13L64.373 44.488l1.542-1.411c15.9-14.554 36.501-23.088 58.009-24.03l1.998-.087.175 3.996-1.998.087c-19.874.87-38.94 8.52-53.923 21.59l56.668 56.668L124.015 104.13zM130 27H134V103.5H130z" />
+          <path d="M220.001,108.955l-87.156-0.003l58.633-58.634c-15.231-15.917-36.3-26.212-59.553-27.232l-1.998-0.087 l0.176-3.997l1.998,0.088c22.991,1.009,44.634,10.542,60.942,26.845c16.308,16.303,25.849,37.942,26.865,60.932L220.001,108.955z M142.501,104.952l73.294,0.003c-1.345-19.628-9.294-37.602-21.615-51.683L142.501,104.952z" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="256" height="128">
+          <path d="M118.353 109.783L61.687 53.121c-13.07 14.984-20.719 34.05-21.588 53.921l-.087 1.999-3.996-.175.087-1.998c.94-21.506 9.474-42.107 24.028-58.008l1.411-1.542 59.64 59.637L118.353 109.783zM124.015 104.13L64.373 44.488l1.542-1.411c15.9-14.554 36.501-23.088 58.009-24.03l1.998-.087.175 3.996-1.998.087c-19.874.87-38.94 8.52-53.923 21.59l56.668 56.668L124.015 104.13zM130 27H134V103.5H130z" />
+          <path d="M220.001,108.955l-87.156-0.003l58.633-58.634c-15.231-15.917-36.3-26.212-59.553-27.232l-1.998-0.087 l0.176-3.997l1.998,0.088c22.991,1.009,44.634,10.542,60.942,26.845c16.308,16.303,25.849,37.942,26.865,60.932L220.001,108.955z M142.501,104.952l73.294,0.003c-1.345-19.628-9.294-37.602-21.615-51.683L142.501,104.952z" />
+        </svg>
+      </aside>
+      <aside id="particles">
+        <div class="wrapper"><img src="assets/bitzeny.svg" alt="BitZeny"></div>
+        <div class="wrapper"><img src="assets/csharp.svg" alt="C#"></div>
+        <div class="wrapper"><img src="assets/dotnet.svg" alt=".NET"></div>
+        <div class="wrapper"><img src="assets/firefox.svg" alt="Firefox"></div>
+        <div class="wrapper"><img src="assets/github.svg" alt="GitHub"></div>
+        <div class="wrapper"><img src="assets/twitter.svg" alt="Twitter"></div>
+        <div class="wrapper"><img src="assets/typescript.svg" alt="TypeScript"></div>
+        <div class="wrapper"><img src="assets/ubuntu.svg" alt="ubuntu"></div>
+      </aside>
+      <aside id="shell">
+        <div class="input">
+          <div class="name"></div>
+          <div class="org"></div>
+          <div class="social"></div>
+          <div class="lang"></div>
+          <div class="using"></div>
+          <div class="address"></div>
+        </div>
+        <div class="output">
+          <div class="name"></div>
+          <div class="org"></div>
+          <div class="social"></div>
+          <div class="lang"></div>
+          <div class="using"></div>
+          <div class="address"></div>
+        </div>
+      </aside>
+      <aside id="thanks">
+        <div>T</div>
+        <div>h</div>
+        <div>a</div>
+        <div>n</div>
+        <div>k</div>
+        <div>s</div>
+        <div>&nbsp;</div>
+        <div>f</div>
+        <div>o</div>
+        <div>r</div>
+        <div>&nbsp;</div>
+        <div>y</div>
+        <div>o</div>
+        <div>u</div>
+        <div>r</div>
+        <div>&nbsp;</div>
+        <div>a</div>
+        <div>c</div>
+        <div>c</div>
+        <div>e</div>
+        <div>s</div>
+        <div>s</div>
+        <div>!</div>
+      </aside>
+      <aside id="share">
+        <a href="https://twitter.com/intent/tweet?text=Anima%20-%20Acid%20Chicken's%20Website%202018&url=https%3A%2F%2Facid-chicken.com&via=acid_chicken" target="_blank"><img src="assets/twitter.svg" alt="Share on Twitter"></a>
+      </aside>
+    </main>
+    <menu id="menu" type="context">
+      <menuitem label="Restart animation" id="restart"></menuitem>
+    </menu>
+    <script>
+      const root = document.getElementById('root')
+      window.addEventListener('load', ev => root.classList.add('animate'))
+      document.getElementById('restart').addEventListener('click', ev => {
+        root.classList.remove('animate')
+        requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('animate')))
+      })
+    </script>
+  </body>
+</html>
