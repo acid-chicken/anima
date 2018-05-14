@@ -105,8 +105,8 @@
       }
 
       main::before {
-        background: rgba(136, 72, 75, .75);
-        color: #ffffff;
+        background: #88484bbf;
+        color: #ffffffff;
         content: 'Whoops! What a ugly render! Your browser is legacy than the latest Firefox. So please use the latest Firefox to see this website.';
         font: 4em/1 -apple-system-body, BlinkMacSystemFont, 'Abel', 'Noto Sans JP', sans-serif;
         padding: .5em;
@@ -131,13 +131,15 @@
 
       @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
         main::before {
+          background: rgba(136, 72, 75, .75);
+          color: rgba(255, 255, 255, 1);
           content: 'Whoops! What a ugly render! Your browser is legacy than the latest Firefox. So please use the latest Firefox to see this website.';
           display: block
         }
       }
 
       main > * {
-        color: #ffffff;
+        color: #ffffffff;
         -webkit-font-display: swap;
            -moz-font-display: swap;
             -ms-font-display: swap;
@@ -165,8 +167,8 @@
 
       .animate #brush *::before,
       .animate #brush *::after {
-        border: .5px solid #202224;
-        background: #202224;
+        border: .5px solid #202224ff;
+        background: #202224ff;
         content: '';
         display: block;
         height: 100%;
@@ -264,8 +266,8 @@
       }
 
       .animate #logo svg {
-        fill: #ffffff;
-        stroke: #ffffff;
+        fill: #ffffffff;
+        stroke: #ffffffff;
         -webkit-stroke-alignment: inner;
            -moz-stroke-alignment: inner;
             -ms-stroke-alignment: inner;
@@ -449,9 +451,9 @@
         animation:
           shell-frame-in .5s cubic-bezier(.24, 1, .36, 1) 8s backwards,
           shell-frame-out .5s cubic-bezier(.24, 0, .72, 0) 44s forwards;
-        background: #44485b80;
+        background: #44485b8f;
         border-radius: .25em;
-        box-shadow: 0 .125em .25em .125em #11121380;
+        box-shadow: 0 .125em .25em .125em #1112138f;
         margin: 1em;
         overflow: hidden;
         padding: .25em;
@@ -751,13 +753,13 @@
 
       .animate #thanks::before {
         animation: thanks-wrapper 1s cubic-bezier(.24, 1, .5, .5) 45s both;
-        background: #2284e6;
+        background: #2284e6ff;
         z-index: 3
       }
 
       .animate #thanks::after {
         animation: thanks-wrapper 1s cubic-bezier(.24, 0, .5, .5) 45s both;
-        background: #2468ac;
+        background: #2468acff;
         z-index: 2
       }
 
