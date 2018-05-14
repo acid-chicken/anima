@@ -104,6 +104,38 @@
         display: none
       }
 
+      main::before {
+        background: #88484BB0;
+        color: #ffffff;
+        content: 'Your browser is legacy than the latest Firefox. So please use the latest Firefox to see this website.';
+        font: 4em/1 -apple-system-body, BlinkMacSystemFont, 'Abel', 'Noto Sans JP', sans-serif;
+        padding: .5em;
+        text-align: center;
+        width: 100%;
+        z-index: 4
+      }
+
+      @-moz-document url-prefix() {
+        main::before {
+          content: '';
+          display: none
+        }
+      }
+
+      @media screen and (-webkit-min-device-pixel-ratio:0) {
+        main::before {
+          content: '';
+          display: none
+        }
+      }
+
+      @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+        main::before {
+          content: 'Your browser is legacy than the latest Firefox. So please use the latest Firefox to see this website.';
+          display: block
+        }
+      }
+
       main > * {
         color: #ffffff;
         -webkit-font-display: swap;
@@ -693,7 +725,7 @@
         align-content: center;
         display: flex;
         flex-wrap: wrap;
-        font: 4em 'Abel', 'Noto Sans JP', sans-serif;
+        font: 4em/1 -apple-system-body, BlinkMacSystemFont, 'Abel', 'Noto Sans JP', sans-serif;
         justify-content: space-around;
         text-align: center;
         -webkit-user-select: none;
