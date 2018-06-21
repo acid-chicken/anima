@@ -990,6 +990,8 @@
     </main>
     <menu id="menu" type="context">
       <menuitem label="Restart animation" id="restart"></menuitem>
+      <menuitem label="View @acid_chicken on Twitter" id="twitter"></menuitem>
+      <menuitem label="View @acid-chicken on GitHub" id="github"></menuitem>
     </menu>
     <script>
       const root = document.getElementById('root')
@@ -997,6 +999,12 @@
       document.getElementById('restart').addEventListener('click', ev => {
         root.classList.remove('animate')
         requestAnimationFrame(() => requestAnimationFrame(() => root.classList.add('animate')))
+      })
+      document.getElementById('twitter').addEventListener('click', ev => {
+        window.open('https://twitter.com/intent/user?user_id=752061552128200704')
+      })
+      document.getElementById('github').addEventListener('click', ev => {
+        window.open('https://github.com/acid-chicken')
       })
     </script>
   </body>
